@@ -2,6 +2,6 @@ using Bot;
 
 public interface ICollectable
 {
-    public string Name { get; }
+    public int UniqueID { get; }
     void Collect(IInventory inventory);
 }

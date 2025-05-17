@@ -4,13 +4,13 @@ namespace Bot
 {
     public class Task
     {
-        public Task(string itemName, Vector3 position)
+        public Task(int id, Vector3 position)
         {
-            ItemName = itemName;
+            Id = id;
             Position = position;
         }
 
-        public string ItemName { get; }
+        public int Id { get; }
         public Vector3 Position { get; }
     }
 }

@@ -62,7 +62,7 @@ namespace Base
 
         private void OnItemSpawned(Item item)
         {
-            _tasks.Add(new Task(item.Name, item.Position));
+            _tasks.Add(new Task(item.UniqueID, item.Position));
         }
     }
 }

@@ -1,11 +1,19 @@
 using System;
 using Bot;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class Item : MonoBehaviour
 {
     public abstract string Name { get; }
+    public int UniqueID { get; private set; }
+
     public Vector3 Position => transform.position;
+
+    private void Awake()
+    {
+        UniqueID = Random.Range(int.MinValue, int.MaxValue);
+    }
 
     public CollectedItem GetCollectedItem() =>
         new CollectedItem(Name);
@@ -18,7 +26,11 @@ public abstract class Item<T> : Item, ICollectable, ISpawnable<T> where T : Item
     public void Collect(IInventory inventory)
     {
         inventory.Collect(this);
-        Dying?.Invoke((T)this);
+
+        if (Dying == null)
+            throw new Exception("123");
+
+        Dying.Invoke((T)this);
     }
 
     public void Destroy() =>

@@ -11,7 +11,7 @@ namespace Bot.States
 
         private void OnEnable()
         {
-            if (_itemDetector.TryGiveItem(_tasker.Task.ItemName, out ICollectable collectable))
+            if (_itemDetector.TryGiveItem(_tasker.Task.Id, out ICollectable collectable))
                 collectable.Collect(_inventory);
 
             ChangeState<IReturnState>();

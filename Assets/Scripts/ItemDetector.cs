@@ -19,9 +19,9 @@ public class ItemDetector : MonoBehaviour
             _collectables.Remove(collectable);
     }
 
-    public bool TryGiveItem(string itemName, out ICollectable collectable)
+    public bool TryGiveItem(int itemId, out ICollectable collectable)
     {
-        collectable = _collectables.FirstOrDefault(item => item.Name == itemName);
+        collectable = _collectables.FirstOrDefault(item => item.UniqueID == itemId);
 
         return collectable != null;
     }
