@@ -6,14 +6,9 @@ using Random = UnityEngine.Random;
 public abstract class Item : MonoBehaviour
 {
     public abstract string Name { get; }
-    public int UniqueID { get; private set; }
+    public int UniqueID => GetInstanceID();
 
     public Vector3 Position => transform.position;
-
-    private void Awake()
-    {
-        UniqueID = Random.Range(int.MinValue, int.MaxValue);
-    }
 
     public CollectedItem GetCollectedItem() =>
         new CollectedItem(Name);
