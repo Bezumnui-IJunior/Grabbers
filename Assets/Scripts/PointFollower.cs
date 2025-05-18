@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class PointFollower : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
     [SerializeField] private NavMeshAgent _agent;
 
     private NavMeshPath _path;

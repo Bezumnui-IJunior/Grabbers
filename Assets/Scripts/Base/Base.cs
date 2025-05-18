@@ -5,16 +5,19 @@ using UnityEngine;
 
 namespace Base
 {
-    public class Base : MonoBehaviour
+    public class Base : MonoBehaviour, IBase
     {
         [SerializeField] private RandomItemSpawner _itemSpawner;
-        [SerializeField] private List<TaskAcceptor> _bots;
+        [SerializeField] private List<Bot.Bot> _members;
         [SerializeField] private DropOffArea _drop;
 
-        private readonly List<TaskAcceptor> _botsReady = new List<TaskAcceptor>();
+        private readonly List<TaskAcceptor> _membersIdle = new List<TaskAcceptor>();
         private readonly List<Task> _tasks = new List<Task>();
 
         public Warehouse Warehouse { get; } = new Warehouse();
+
+        public Vector3 Center => transform.position;
+        public IDropOffArea DropOffArea => _drop;
 
         private void Awake()
         {
@@ -26,13 +29,13 @@ namespace Base
             if (_tasks.Count == 0)
                 return;
 
-            foreach (TaskAcceptor bot in _botsReady)
+            foreach (TaskAcceptor taskAcceptor in _membersIdle)
             {
-                if (bot.TryAcceptTask(_tasks[0]) == false)
+                if (taskAcceptor.TryAcceptTask(_tasks[0]) == false)
                     continue;
 
                 _tasks.RemoveAt(0);
-                _botsReady.Remove(bot);
+                _membersIdle.Remove(taskAcceptor);
 
                 return;
             }
@@ -42,21 +45,24 @@ namespace Base
         {
             _itemSpawner.Spawned += OnItemSpawned;
 
-            foreach (TaskAcceptor bot in _bots)
-                bot.GotReady += OnGotReady;
+            foreach (Bot.Bot bot in _members)
+            {
+                bot.ChangeBase(this);
+                bot.TaskAcceptor.GotReady += OnGotReady;
+            }
         }
 
         private void OnDisable()
         {
             _itemSpawner.Spawned -= OnItemSpawned;
 
-            foreach (TaskAcceptor bot in _bots)
-                bot.GotReady -= OnGotReady;
+            foreach (Bot.Bot bot in _members)
+                bot.TaskAcceptor.GotReady -= OnGotReady;
         }
 
         private void OnGotReady(TaskAcceptor bot)
         {
-            _botsReady.Add(bot);
+            _membersIdle.Add(bot);
             _itemSpawner.SpawnItem();
         }
 

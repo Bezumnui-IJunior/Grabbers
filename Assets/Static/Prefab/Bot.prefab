@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7369268359990141083}
   - component: {fileID: 5064454292517030738}
   - component: {fileID: 8007313130214604190}
+  - component: {fileID: 7485876865903832952}
   m_Layer: 6
   m_Name: Bot
   m_TagString: Untagged
@@ -259,6 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateMachine: {fileID: 7662844770612716363}
+  _taskAcceptor: {fileID: 3980030777725219722}
+  _member: {fileID: 7485876865903832952}
 --- !u!114 &5064454292517030738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60363a2570544ecbf8387c3375105f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseMember: {fileID: 7485876865903832952}
 --- !u!54 &8007313130214604190
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -298,6 +302,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7485876865903832952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876464350285356985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7bc27129af4a6cb92bb018d0a72cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2065404125311238728
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateMachine: {fileID: 7662844770612716363}
-  _basePosition: {x: 12, y: 1, z: -12}
+  _baseMember: {fileID: 7485876865903832952}
+  _dropOffer: {fileID: 5064454292517030738}
   _pointFollower: {fileID: 3570958660120380224}
 --- !u!114 &5891013219758902565
 MonoBehaviour:

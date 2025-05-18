@@ -5,20 +5,21 @@ namespace Bot.States
 {
     public class ReturnState : State, IReturnState
     {
-        [SerializeField] private Vector3 _basePosition;
+        [SerializeField] private BaseMember _baseMember;
+        [SerializeField] private DropOffer _dropOffer;
         [SerializeField] private PointFollower _pointFollower;
 
         private void OnEnable()
         {
-            if (_pointFollower.TrySetPath(_basePosition) == false)
+            if (_pointFollower.TrySetPath(_baseMember.Base.Center) == false)
                 throw new Exception("Unexpected bot position. Could not reach the base");
 
-            _pointFollower.Reached += ChangeState<IDropOffState>;
+            _dropOffer.BaseEntered += ChangeState<IDropOffState>;
         }
 
         private void OnDisable()
         {
-            _pointFollower.Reached -= ChangeState<IDropOffState>;
+            _dropOffer.BaseEntered -= ChangeState<IDropOffState>;
         }
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using Bot;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public abstract class Item : MonoBehaviour
 {
