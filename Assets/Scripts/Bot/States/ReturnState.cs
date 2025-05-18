@@ -14,12 +14,18 @@ namespace Bot.States
             if (_pointFollower.TrySetPath(_baseMember.Base.Center) == false)
                 throw new Exception("Unexpected bot position. Could not reach the base");
 
-            _dropOffer.BaseEntered += ChangeState<IDropOffState>;
+            _dropOffer.BaseEntered += OnBaseEntered;
         }
 
         private void OnDisable()
         {
-            _dropOffer.BaseEntered -= ChangeState<IDropOffState>;
+            _dropOffer.BaseEntered -= OnBaseEntered;
+        }
+
+        private void OnBaseEntered()
+        {
+            _pointFollower.Stop();
+            ChangeState<IDropOffState>();
         }
     }
 }

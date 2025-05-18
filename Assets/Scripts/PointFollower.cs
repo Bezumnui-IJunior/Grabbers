@@ -25,6 +25,11 @@ public class PointFollower : MonoBehaviour
         return true;
     }
 
+    public void Stop()
+    {
+        _agent.ResetPath();
+    }
+
     private IEnumerator Reaching()
     {
         while (_agent.hasPath)
