@@ -1,24 +1,26 @@
-using System;
 using System.Collections.Generic;
+using Misc;
 using Unity.AI.Navigation;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Spawners
 {
-    public class RandomItemSpawner : MonoBehaviour
+    public class RandomItemSpawner : MonoBehaviour, ICoroutineExecutor
     {
         [SerializeField] private BoxItemSpawner _boxItemSpawner;
         [SerializeField] private SphereItemSpawner _sphereItemSpawner;
         [SerializeField] private NavMeshSurface _surface;
         [SerializeField] private float _yPlane = 1;
+        [SerializeField] private float _spawnDelaySeconds;
         private NavmeshPointGenerator _pointGenerator;
         private List<IItemSpawner> _spawners;
-
-        public event Action<Item> Spawned;
+        private CooldownTimer _timer;
 
         private void Awake()
         {
+            _timer = new CooldownTimer(this, _spawnDelaySeconds);
+
             _pointGenerator = new NavmeshPointGenerator(_surface);
 
             _spawners = new List<IItemSpawner>
@@ -26,6 +28,23 @@ namespace Spawners
                 _boxItemSpawner,
                 _sphereItemSpawner,
             };
+        }
+
+        private void OnEnable()
+        {
+            _timer.Freed += SpawnWithTimer;
+            _timer.Start();
+        }
+
+        private void OnDisable()
+        {
+            _timer.Freed -= SpawnWithTimer;
+        }
+
+        private void SpawnWithTimer()
+        {
+            SpawnItem();
+            _timer.Start();
         }
 
         [ContextMenu("SpawnItem")]
@@ -37,7 +56,6 @@ namespace Spawners
             Item item = GetRandomSpawner().InstantiateObject();
             position.y = _yPlane;
             item.transform.position = position;
-            Spawned?.Invoke(item);
         }
 
         private IItemSpawner GetRandomSpawner() =>

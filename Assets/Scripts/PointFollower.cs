@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +7,7 @@ public class PointFollower : MonoBehaviour
 
     private NavMeshPath _path;
 
-    public event Action Reached;
+    public bool IsBusy => _agent.hasPath;
 
     public bool TrySetPath(Vector3 position)
     {
@@ -20,7 +18,6 @@ public class PointFollower : MonoBehaviour
             return false;
 
         _agent.SetPath(_path);
-        StartCoroutine(Reaching());
 
         return true;
     }
@@ -28,13 +25,5 @@ public class PointFollower : MonoBehaviour
     public void Stop()
     {
         _agent.ResetPath();
-    }
-
-    private IEnumerator Reaching()
-    {
-        while (_agent.hasPath)
-            yield return null;
-
-        Reached?.Invoke();
     }
 }

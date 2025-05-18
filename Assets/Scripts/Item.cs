@@ -22,7 +22,7 @@ public abstract class Item<T> : Item, ICollectable, ISpawnable<T> where T : Item
         inventory.Collect(this);
 
         if (Dying == null)
-            throw new Exception("123");
+            throw new Exception("Couldn't die: the item is already dead");
 
         Dying.Invoke((T)this);
     }

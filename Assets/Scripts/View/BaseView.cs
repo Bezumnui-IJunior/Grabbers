@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
-using Base;
+using Bases;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ namespace View
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class BaseView : MonoBehaviour
     {
-        [SerializeField] private Base.Base _base;
+        [SerializeField] private Bases.Base _base;
 
         private readonly List<InventoryItem> _items = new List<InventoryItem>();
         private readonly StringBuilder _stringBuilder = new StringBuilder();
@@ -48,7 +48,7 @@ namespace View
 
         private void UpdateItems()
         {
-            Warehouse.GetItems(_items);
+            Warehouse.CopyItems(_items);
         }
     }
 }
