@@ -46,69 +46,123 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/Bases/DropOffArea.cs" />
     <Compile Include="Assets/Scripts/Spawners/ItemSpawner.cs" />
     <Compile Include="Assets/Scripts/Bases/Base.cs" />
-    <Compile Include="Assets/Scripts/Bases/InventoryItem.cs" />
     <Compile Include="Assets/Scripts/Spawners/Spawner.cs" />
-    <Compile Include="Assets/Scripts/Bots/interfaces/IBotTask.cs" />
+    <Compile Include="Assets/Scripts/View/interfaces/IViewBaseSelector.cs" />
+    <Compile Include="Assets/Scripts/Items/Item.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseTooFew/BaseToFewSelectedToBaseBusySelected.cs" />
+    <Compile Include="Assets/Scripts/Flags/Flag.cs" />
     <Compile Include="Assets/Scripts/Bases/interfaces/IBaseSelector.cs" />
     <Compile Include="Assets/Scripts/StateMachines/StateMachine.cs" />
-    <Compile Include="Assets/Scripts/Bases/interfaces/IWarehouse.cs" />
-    <Compile Include="Assets/Scripts/Bots/States/ReturnState.cs" />
-    <Compile Include="Assets/Scripts/Spawners/interfaces/IItemSpawner.cs" />
-    <Compile Include="Assets/Scripts/Bots/Transitions/TransitionOnTask.cs" />
-    <Compile Include="Assets/Scripts/View/ViewBaseSelector.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/CollectingToReturn.cs" />
+    <Compile Include="Assets/Scripts/View/BasesView.cs" />
     <Compile Include="Assets/Scripts/Bots/Inventory.cs" />
-    <Compile Include="Assets/Scripts/View/BaseView.cs" />
-    <Compile Include="Assets/Scripts/CollectedItem.cs" />
-    <Compile Include="Assets/Scripts/Bots/Bot.cs" />
+    <Compile Include="Assets/Scripts/Bases/Transitions/CollectingToEarningForBase.cs" />
+    <Compile Include="Assets/Scripts/Bases/interfaces/IMembersStorage.cs" />
+    <Compile Include="Assets/Scripts/Spawners/BotFactory.cs" />
+    <Compile Include="Assets/Scripts/Bots/BaseBuilder.cs" />
+    <Compile Include="Assets/Scripts/StateMachines/Transitions/DelayedTransition.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/GoToTaskToReturn.cs" />
     <Compile Include="Assets/Scripts/Bots/BringItemTask.cs" />
+    <Compile Include="Assets/Scripts/Bots/States/BuildingBaseState.cs" />
     <Compile Include="Assets/Scripts/PointFollower.cs" />
-    <Compile Include="Assets/Scripts/Bases/ReadyBotsProvider.cs" />
-    <Compile Include="Assets/Scripts/Bots/States/CollectingState.cs" />
-    <Compile Include="Assets/Scripts/StateMachines/interfaces/ITransition.cs" />
-    <Compile Include="Assets/Scripts/Bases/ItemsScaner.cs" />
+    <Compile Include="Assets/Scripts/Items/SphereItem.cs" />
+    <Compile Include="Assets/Scripts/Bots/interfaces/IBaseMember.cs" />
     <Compile Include="Assets/Scripts/Bots/interfaces/IBaseConsistencyProvider.cs" />
     <Compile Include="Assets/Scripts/Misc/CooldownTimer.cs" />
+    <Compile Include="Assets/Scripts/View/States/BaseTooFewSelectedState.cs" />
     <Compile Include="Assets/Scripts/Bots/TaskAcceptor.cs" />
-    <Compile Include="Assets/Scripts/Bases/BringTaskCreator.cs" />
     <Compile Include="Assets/Scripts/Bots/DropOffer.cs" />
-    <Compile Include="Assets/Scripts/Bots/TypedTask.cs" />
-    <Compile Include="Assets/Scripts/Bases/BaseSelector.cs" />
+    <Compile Include="Assets/Scripts/Bots/ItemDetector.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/NullBaseSelectedToIdleTransition.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/WaitCollectingToCollecting.cs" />
+    <Compile Include="Assets/Scripts/View/States/abstract/BaseWrongSelectedState.cs" />
     <Compile Include="Assets/Scripts/Bases/interfaces/IBase.cs" />
     <Compile Include="Assets/Scripts/Bots/States/DropOffState.cs" />
     <Compile Include="Assets/Scripts/StateMachines/State.cs" />
-    <Compile Include="Assets/Scripts/StateMachines/interfaces/IStateChanger.cs" />
-    <Compile Include="Assets/Scripts/Bases/interfaces/IDropOffArea.cs" />
-    <Compile Include="Assets/Scripts/StateMachines/Transition.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/DropOffToIdle.cs" />
+    <Compile Include="Assets/Scripts/View/States/BaseBusySelectedState.cs" />
     <Compile Include="Assets/Scripts/Bots/BotTasks.cs" />
-    <Compile Include="Assets/Scripts/Spawners/RandomItemSpawner.cs" />
-    <Compile Include="Assets/Scripts/Bases/MembersStorage.cs" />
-    <Compile Include="Assets/Scripts/SphereItem.cs" />
-    <Compile Include="Assets/Scripts/Bots/interfaces/IBotTasker.cs" />
-    <Compile Include="Assets/Scripts/ItemDetector.cs" />
-    <Compile Include="Assets/Scripts/Bots/BotTasker.cs" />
+    <Compile Include="Assets/Scripts/StateMachines/Transitions/ImmediateTransition.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/GoToTaskByTypeTransition.cs" />
     <Compile Include="Assets/Scripts/Bots/States/IdleState.cs" />
     <Compile Include="Assets/Scripts/interfaces/ICollectable.cs" />
     <Compile Include="Assets/Scripts/Bots/BaseMember.cs" />
-    <Compile Include="Assets/Scripts/Bots/Transitions/TransitionOnBased.cs" />
-    <Compile Include="Assets/Scripts/Bots/Transitions/TransitionOnReach.cs" />
-    <Compile Include="Assets/Scripts/Bots/States/FollowItemState.cs" />
+    <Compile Include="Assets/Scripts/Bases/Transitions/EarningForBaseToCollecting.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/ReturnToDropOff.cs" />
     <Compile Include="Assets/Scripts/Spawners/BoxItemSpawner.cs" />
-    <Compile Include="Assets/Scripts/Bots/Transitions/DelayedTransition.cs" />
-    <Compile Include="Assets/Scripts/Bots/StateMachineInitializer.cs" />
-    <Compile Include="Assets/Scripts/BoxItem.cs" />
-    <Compile Include="Assets/Scripts/Bases/TaskDispatcher.cs" />
+    <Compile Include="Assets/Scripts/Bases/BaseCreator.cs" />
+    <Compile Include="Assets/Scripts/View/FlagInstaller.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/IdleToGoToTask.cs" />
+    <Compile Include="Assets/Scripts/Misc/PriorityQueue.cs" />
+    <Compile Include="Assets/Scripts/Bots/States/WaitCollectingState.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromIdle/IdleToBaseTooFewSelected.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/GoToTaskToBuildBase.cs" />
     <Compile Include="Assets/Scripts/NavmeshPointGenerator.cs" />
-    <Compile Include="Assets/Scripts/Item.cs" />
     <Compile Include="Assets/Scripts/Spawners/SphereItemSpawner.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseTooFew/BaseTooFewToIdle.cs" />
     <Compile Include="Assets/Scripts/Bots/interfaces/IInventory.cs" />
-    <Compile Include="Assets/Scripts/Bots/Transitions/ImmediateTransition.cs" />
-    <Compile Include="Assets/Scripts/Bases/Warehouse.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseBusy/BaseBusySelectedToBaseTooFewSelected.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/BaseSelectedCorrectTransition.cs" />
+    <Compile Include="Assets/Scripts/Items/CollectedItem.cs" />
     <Compile Include="Assets/Scripts/Bases/States/CollectingState.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/BaseWrongSelectedToBaseSelected.cs" />
+    <Compile Include="Assets/Scripts/StateMachines/Transitions/FuncTransition.cs" />
+    <Compile Include="Assets/Scripts/Bases/DropOffArea.cs" />
+    <Compile Include="Assets/Scripts/Bots/BuildBaseTask.cs" />
+    <Compile Include="Assets/Scripts/Bases/InventoryItem.cs" />
+    <Compile Include="Assets/Scripts/Flags/interfaces/IFlag.cs" />
+    <Compile Include="Assets/Scripts/Bots/States/GoToTaskState.cs" />
+    <Compile Include="Assets/Scripts/Bases/Transitions/CreateNewBotToCollecting.cs" />
+    <Compile Include="Assets/Scripts/Bots/interfaces/IBotTask.cs" />
+    <Compile Include="Assets/Scripts/View/interfaces/IInformationText.cs" />
+    <Compile Include="Assets/Scripts/Bases/interfaces/IWarehouse.cs" />
+    <Compile Include="Assets/Scripts/Bots/States/ReturnState.cs" />
+    <Compile Include="Assets/Scripts/Spawners/interfaces/IItemSpawner.cs" />
+    <Compile Include="Assets/Scripts/View/States/IdleState.cs" />
+    <Compile Include="Assets/Scripts/View/ViewBaseSelector.cs" />
+    <Compile Include="Assets/Scripts/Bots/Bot.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/BaseBusySelectedTransition.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromIdle/IdleToBaseSelected.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/GoToTaskToWaitCollecting.cs" />
+    <Compile Include="Assets/Scripts/Bots/States/CollectingState.cs" />
+    <Compile Include="Assets/Scripts/StateMachines/interfaces/ITransition.cs" />
+    <Compile Include="Assets/Scripts/Bases/ItemsScaner.cs" />
+    <Compile Include="Assets/Scripts/Items/BoxItem.cs" />
+    <Compile Include="Assets/Scripts/Bases/BringTaskCreator.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromIdle/IdleToBaseBusySelected.cs" />
+    <Compile Include="Assets/Scripts/View/States/BaseSelectedState.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseBusy/BaseBusySelectedToBaseSelected.cs" />
+    <Compile Include="Assets/Scripts/Bots/TypedTask.cs" />
+    <Compile Include="Assets/Scripts/Bases/BaseSelector.cs" />
+    <Compile Include="Assets/Scripts/View/Input/IViewInput.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseTooFew/BaseTooFewSelectedToIdle.cs" />
+    <Compile Include="Assets/Scripts/Spawners/FlagSpawner.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/BaseTooFewTransition.cs" />
+    <Compile Include="Assets/Scripts/StateMachines/interfaces/IStateChanger.cs" />
+    <Compile Include="Assets/Scripts/View/InformationText.cs" />
+    <Compile Include="Assets/Scripts/Bases/Transitions/CollectingToCreateNewBot.cs" />
+    <Compile Include="Assets/Scripts/Bases/interfaces/IDropOffArea.cs" />
+    <Compile Include="Assets/Scripts/StateMachines/Transition.cs" />
+    <Compile Include="Assets/Scripts/Bots/Transitions/BuildingBaseToIdle.cs" />
+    <Compile Include="Assets/Scripts/Spawners/RandomItemSpawner.cs" />
+    <Compile Include="Assets/Scripts/Misc/MonoBehaviourExtenstion.cs" />
+    <Compile Include="Assets/Scripts/Bases/MembersStorage.cs" />
+    <Compile Include="Assets/Scripts/Bots/interfaces/IBotTasker.cs" />
+    <Compile Include="Assets/Scripts/Bots/BotTasker.cs" />
+    <Compile Include="Assets/Scripts/Bases/interfaces/IBaseCreator.cs" />
+    <Compile Include="Assets/Scripts/View/BaseResourcesView.cs" />
+    <Compile Include="Assets/Scripts/Bases/States/EarningForBaseState.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseBusy/BaseBusySelectedToIdle.cs" />
+    <Compile Include="Assets/Scripts/Bots/StateMachineInitializer.cs" />
+    <Compile Include="Assets/Scripts/Bases/TaskDispatcher.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseSelected/BaseSelectedTransition.cs" />
+    <Compile Include="Assets/Scripts/Bases/Warehouse.cs" />
     <Compile Include="Assets/Scripts/Bootstrap.cs" />
+    <Compile Include="Assets/Scripts/Bases/States/CreateNewBotState.cs" />
     <Compile Include="Assets/Scripts/Misc/ICoroutineExecutor.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseSelected/BaseSelectedToIdle.cs" />
     <Compile Include="Assets/Scripts/interfaces/ISpawnable.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
@@ -482,6 +536,9 @@
     <Reference Include="UnityEditor.XRModule">
       <HintPath>/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.XRModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Collections.LowLevel.ILSupport">
+      <HintPath>/Users/bezikmac/Grabbers/Library/PackageCache/com.unity.collections@56bff8827a7e/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>/Users/bezikmac/Grabbers/Library/PackageCache/com.unity.ext.nunit@031a54704bff/net40/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
@@ -490,6 +547,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>/Users/bezikmac/Grabbers/Library/PackageCache/com.unity.visualscripting@7dcdc439b230/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>/Users/bezikmac/Grabbers/Library/PackageCache/com.unity.nuget.mono-cecil@d6f9955a5d5f/Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -866,11 +926,80 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.AI.Navigation">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Multiplayer.Center.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rendering.LightTransport.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Rendering.LightTransport.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Collections.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
@@ -896,44 +1025,29 @@
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Settings.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Settings.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Multiplayer.Center.Editor">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
@@ -941,14 +1055,23 @@
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+    <Reference Include="Unity.Rendering.LightTransport.Runtime">
+      <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.Rendering.LightTransport.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>/Users/bezikmac/Grabbers/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>

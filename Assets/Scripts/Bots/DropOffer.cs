@@ -1,6 +1,5 @@
 using System;
-using Base;
-using Bot;
+using Bases;
 using UnityEngine;
 
 namespace Bots
@@ -14,7 +13,7 @@ namespace Bots
 
         private void OnTriggerEnter(Collider other)
         {
-            DoIfMember(other, EnterBase);
+            DoIfMember(other, () => IsInsideBase = true);
         }
 
         private void OnTriggerExit(Collider other)
@@ -22,17 +21,12 @@ namespace Bots
             DoIfMember(other, () => { IsInsideBase = false; });
         }
 
-        private void EnterBase()
-        {
-            IsInsideBase = true;
-        }
-
         private void DoIfMember(Collider other, Action action)
         {
-            if (other.TryGetComponent(out IBase @base) == false)
+            if (other.TryGetComponent(out IMembersStorage storage) == false)
                 return;
 
-            if (@base == _baseMember.Base)
+            if (storage == _baseMember.MembersStorage)
                 action();
         }
 
@@ -41,7 +35,7 @@ namespace Bots
             if (IsInsideBase == false)
                 throw new Exception($"{IsInsideBase} is false. Cannot extract.");
 
-            _baseMember.Base.DropOffArea.Load(_inventory.TransferItems());
+            _baseMember.MembersStorage.DropOffArea.Load(_inventory.TransferItems());
         }
 
         public void Init(Inventory inventory)

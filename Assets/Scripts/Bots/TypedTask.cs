@@ -4,17 +4,20 @@ namespace Bots
 {
     public class TypedTask
     {
-        private readonly IBotTask _task;
+        public readonly IBotTask Task;
         public readonly BotTasks Type;
 
         public TypedTask(IBotTask task, BotTasks type)
         {
-            _task = task;
+            Task = task;
             Type = type;
         }
 
         public BringItemTask GetBringItemTask() =>
             GetTask<BringItemTask>(BotTasks.BringItem);
+
+        public BuildBaseTask GetBuildBaseTask() =>
+            GetTask<BuildBaseTask>(BotTasks.BuildNewBase);
 
         private T GetTask<T>(BotTasks type)
         {
@@ -22,7 +25,7 @@ namespace Bots
                 throw new TypeAccessException(
                     $"Collecting state must have {type} task. Got {Type} instead");
 
-            return (T)_task;
+            return (T)Task;
         }
     }
 }

@@ -1,15 +1,34 @@
-using Base;
+using Bases;
 using UnityEngine;
 
-namespace Bot
+namespace Bots
 {
-    public class BaseMember : MonoBehaviour
+    public class BaseMember : MonoBehaviour, IBaseMember
     {
-        public IBase Base { get; private set; }
+        [SerializeField] private MembersStorage _storage;
 
-        public void SetBase(IBase @base)
+        public IMembersStorage MembersStorage { get; private set; }
+        public TaskAcceptor TaskAcceptor { get; private set; }
+
+        public void SetBase(IMembersStorage storage)
         {
-            Base = @base;
+            MembersStorage?.CheckOut(this);
+            MembersStorage = storage;
+            MembersStorage.CheckIn(this);
+        }
+
+        public void CheckOut()
+        {
+            MembersStorage?.CheckOut(this);
+            MembersStorage = null;
+        }
+
+        public void Init(TaskAcceptor taskAcceptor)
+        {
+            TaskAcceptor = taskAcceptor;
+
+            if (_storage)
+                SetBase(_storage);
         }
     }
 }

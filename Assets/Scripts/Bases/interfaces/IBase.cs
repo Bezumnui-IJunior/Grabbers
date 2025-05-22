@@ -1,11 +1,13 @@
-using Bases;
 using UnityEngine;
 
-namespace Base
+namespace Bases
 {
     public interface IBase
     {
         public Vector3 Center { get; }
-        public IDropOffArea DropOffArea { get; }
+        public IDropOffArea DropOffAreaOffArea { get; }
+        public IMembersStorage MembersStorage { get; }
+
+        public IWarehouse Warehouse { get; }
     }
 }

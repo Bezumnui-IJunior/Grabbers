@@ -33,12 +33,12 @@ namespace Spawners
         private void OnRelease(T spawnable)
         {
             spawnable.Dying -= _pool.Release;
-            spawnable.Disable();
+            spawnable.TurnOff();
         }
 
         private void OnGet(T spawnable)
         {
-            spawnable.Enable();
+            spawnable.TurnOn();
             spawnable.Dying += _pool.Release;
         }
     }

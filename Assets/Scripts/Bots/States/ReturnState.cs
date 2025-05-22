@@ -1,5 +1,4 @@
 using System;
-using Bot;
 using Bots.Transitions;
 using StateMachines;
 
@@ -15,12 +14,12 @@ namespace Bots.States
         {
             _baseMember = baseMember;
             _pointFollower = pointFollower;
-            AddTransition(new TransitionOnBased<DropOffState>(stateChanger, dropOffer));
+            AddTransition(new ReturnToDropOff(stateChanger, dropOffer));
         }
 
         public override void Enter()
         {
-            if (_pointFollower.TrySetPath(_baseMember.Base.Center) == false)
+            if (_pointFollower.TrySetPath(_baseMember.MembersStorage.SpawnPoint) == false)
                 throw new Exception("Unexpected bot position. Could not reach the base");
         }
 

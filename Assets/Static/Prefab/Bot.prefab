@@ -265,6 +265,7 @@ MonoBehaviour:
   _itemDetector: {fileID: 326635556466824911}
   _dropOffer: {fileID: 5064454292517030738}
   _pickupSeconds: 2
+  _builder: {fileID: 0}
 --- !u!114 &5064454292517030738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7bc27129af4a6cb92bb018d0a72cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _membersesStorage: {fileID: 0}
 --- !u!1 &2065404125311238728
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,6 @@ public interface ISpawnable<out T>
 
     void Destroy();
 
-    void Enable();
-    void Disable();
+    void TurnOn();
+    void TurnOff();
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace StateMachines
 {
+    [Serializable]
     public abstract class State
     {
         private readonly IStateChanger _stateChanger;

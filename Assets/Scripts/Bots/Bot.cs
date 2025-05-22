@@ -1,5 +1,4 @@
-using Base;
-using Bot;
+using Bases;
 using Bots.States;
 using StateMachines;
 using UnityEngine;
@@ -15,17 +14,18 @@ namespace Bots
         [SerializeField] private ItemDetector _itemDetector;
         [SerializeField] private DropOffer _dropOffer;
         [SerializeField] private float _pickupSeconds;
-
-        public TaskAcceptor TaskAcceptor => _taskAcceptor;
+        [SerializeField] private BaseBuilder _builder;
 
         private void Start()
         {
             _stateMachine.ChangeState(_stateMachine.GetState<IdleState>());
         }
 
-        public void ChangeBase(IBase @base)
+        public void Init(IMembersStorage storage, BaseBuilder builder)
         {
-            _member.SetBase(@base);
+            _builder = builder;
+            Init();
+            _member.SetBase(storage);
         }
 
         public void Init()
@@ -33,6 +33,7 @@ namespace Bots
             Inventory inventory = new Inventory();
             BotTasker tasker = new BotTasker();
             _taskAcceptor.Init(tasker);
+            _member.Init(_taskAcceptor);
 
             new StateMachineInitializer().InitializeStateMachine(
                 _stateMachine,
@@ -44,8 +45,8 @@ namespace Bots
                 this,
                 _pickupSeconds,
                 _member,
-                _dropOffer
-            );
+                _dropOffer,
+                _builder);
         }
     }
 }

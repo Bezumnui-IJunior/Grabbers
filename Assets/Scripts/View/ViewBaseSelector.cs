@@ -1,47 +1,69 @@
 using Bases;
+using Misc;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using View.Input;
 
 namespace View
 {
-    public class ViewBaseSelector : MonoBehaviour
+    public class ViewBaseSelector : MonoBehaviour, IViewBaseSelector
     {
-        private const KeyCode UnSelectButton = KeyCode.Escape;
-
         [SerializeField] private Camera _camera;
         [SerializeField] private Material _selectMaterial;
         [SerializeField] private float _distance = 100f;
         [SerializeField] private LayerMask _mask;
 
-        private IBaseSelector _selected;
+        private ViewInput _input;
 
-        private void Update()
+        public IBaseSelector Selected { get; private set; }
+
+        private void OnEnable()
         {
-            if (Input.GetKeyDown(UnSelectButton))
-                UnSelect();
-
-            if (Input.GetMouseButtonDown(0))
-                Select();
+            _input.UI.Exit.performed += UnSelect;
+            _input.UI.Choose.performed += Select;
         }
 
-        private void UnSelect()
+        private void OnDisable()
         {
-            _selected?.UnSelect();
-            _selected = null;
+            _input.UI.Exit.performed -= UnSelect;
+            _input.UI.Choose.performed -= Select;
         }
 
-        private void Select()
+        void IViewBaseSelector.Enable() =>
+            this.Enable();
+
+        void IViewBaseSelector.Disable() =>
+            this.Disable();
+
+        public void UnSelect()
+        {
+            Selected?.UnSelect();
+            Selected = null;
+        }
+
+        public void Init(ViewInput input)
+        {
+            _input = input;
+        }
+
+        private void UnSelect(InputAction.CallbackContext _)
+        {
+            UnSelect();
+        }
+
+        private void Select(InputAction.CallbackContext _)
         {
             if (TryCastBase(out IBaseSelector selector) == false)
                 return;
 
-            _selected?.UnSelect();
-            _selected = selector;
+            Selected?.UnSelect();
+            Selected = selector;
             selector.Select();
         }
 
         private bool TryCastBase(out IBaseSelector baseSelector)
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _camera.ScreenPointToRay(_input.UI.CursorPosition.ReadValue<Vector2>());
 
             baseSelector = null;
 

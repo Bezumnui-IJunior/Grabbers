@@ -11,7 +11,7 @@ namespace Bots.States
         {
             _dropOffer = dropOffer;
             _dropOffer.Init(inventory);
-            AddTransition(new ImmediateTransition<IdleState>(stateChanger));
+            AddTransition(new DropOffToIdle(stateChanger));
         }
 
         public override void Enter()

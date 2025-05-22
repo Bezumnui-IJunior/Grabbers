@@ -1,16 +1,18 @@
+using Items;
 using UnityEngine;
 
 namespace Bots
 {
     public class BringItemTask : IBotTask
     {
-        public BringItemTask(int itemId, Vector3 position)
+        public readonly Item Item;
+
+        public BringItemTask(Item item, Vector3 position)
         {
-            ItemId = itemId;
+            Item = item;
             Position = position;
         }
 
-        public int ItemId { get; }
         public Vector3 Position { get; }
     }
 }

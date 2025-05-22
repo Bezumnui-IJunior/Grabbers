@@ -1,3 +1,5 @@
+using Items;
+
 namespace Bot
 {
     public interface IInventory

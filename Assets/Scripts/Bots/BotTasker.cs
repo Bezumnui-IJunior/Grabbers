@@ -6,9 +6,9 @@ namespace Bots
 
         public bool HasTask { get; private set; }
 
-        public void AssignTask(TypedTask bringItemTask)
+        public void AssignTask(TypedTask task)
         {
-            BotTask = bringItemTask;
+            BotTask = task;
             HasTask = true;
         }
 

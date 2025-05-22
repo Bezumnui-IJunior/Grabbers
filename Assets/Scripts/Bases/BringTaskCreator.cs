@@ -1,4 +1,5 @@
 using Bots;
+using Items;
 using Misc;
 using TypedTask = Bots.TypedTask;
 
@@ -32,7 +33,7 @@ namespace Bases
         private void OnTimerFreed()
         {
             foreach (Item item in _itemsScanner.GiveFound())
-                _taskDispatcher.AddTask(new TypedTask(new BringItemTask(item.UniqueID, item.Position), BotTasks.BringItem));
+                _taskDispatcher.AddTask(new TypedTask(new BringItemTask(item, item.Position), BotTasks.BringItem));
 
             _timer.Start();
         }

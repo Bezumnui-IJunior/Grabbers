@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Bots;
+using Misc;
 using UnityEngine;
 
 namespace Bases
@@ -7,12 +7,17 @@ namespace Bases
     public class TaskDispatcher : MonoBehaviour
     {
         [SerializeField] private MembersStorage _storage;
-        private readonly Queue<TypedTask> _tasks = new Queue<TypedTask>();
-        private int Count => _tasks.Count;
+
+        private readonly PriorityQueue<TypedTask> _tasks = new PriorityQueue<TypedTask>();
 
         private void Update()
         {
-            if (Count == 0)
+            AssignTasks();
+        }
+
+        private void AssignTasks()
+        {
+            if (_tasks.Count == 0)
                 return;
 
             foreach (TaskAcceptor bot in _storage.BotsReady)
@@ -29,15 +34,9 @@ namespace Bases
         }
 
         public void AddTask(TypedTask task) =>
-            _tasks.Enqueue(task);
+            _tasks.Enqueue(task, (int)task.Type);
 
         private TypedTask GetTask() =>
             _tasks.Dequeue();
-
-        public void Enable() =>
-            enabled = true;
-
-        public void Disable() =>
-            enabled = false;
     }
 }

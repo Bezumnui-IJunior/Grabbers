@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Bot;
+using Items;
 
 namespace Bots
 {
