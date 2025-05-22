@@ -9,7 +9,7 @@ namespace View.States
             : base(stateChanger, selector, informationText, "Too few bot. Should be more than 1")
         {
             AddTransition(new BaseTooFewSelectedToIdle(stateChanger, selector));
-            AddTransition(new BaseWrongSelectedToBaseSelected(stateChanger, selector));
+            AddTransition(new BaseTooFewSelectedToBaseBusySelected(stateChanger, selector));
             AddTransition(new BaseWrongSelectedToBaseSelected(stateChanger, selector));
         }
     }

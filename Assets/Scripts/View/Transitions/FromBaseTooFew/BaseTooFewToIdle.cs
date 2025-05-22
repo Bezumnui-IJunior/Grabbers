@@ -1,6 +1,6 @@
 using StateMachines;
 
-namespace View.Transitions.FromBaseTooFew
+namespace View.Transitions
 {
     public class BaseTooFewToIdle : NullBaseSelectedToIdleTransition
     {

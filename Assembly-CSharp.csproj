@@ -51,7 +51,6 @@
     <Compile Include="Assets/Scripts/Spawners/Spawner.cs" />
     <Compile Include="Assets/Scripts/View/interfaces/IViewBaseSelector.cs" />
     <Compile Include="Assets/Scripts/Items/Item.cs" />
-    <Compile Include="Assets/Scripts/View/Transitions/FromBaseTooFew/BaseToFewSelectedToBaseBusySelected.cs" />
     <Compile Include="Assets/Scripts/Flags/Flag.cs" />
     <Compile Include="Assets/Scripts/Bases/interfaces/IBaseSelector.cs" />
     <Compile Include="Assets/Scripts/StateMachines/StateMachine.cs" />
@@ -154,6 +153,7 @@
     <Compile Include="Assets/Scripts/Bases/interfaces/IBaseCreator.cs" />
     <Compile Include="Assets/Scripts/View/BaseResourcesView.cs" />
     <Compile Include="Assets/Scripts/Bases/States/EarningForBaseState.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseTooFew/BaseTooFewSelectedToBaseBusySelected.cs" />
     <Compile Include="Assets/Scripts/View/Transitions/FromBaseBusy/BaseBusySelectedToIdle.cs" />
     <Compile Include="Assets/Scripts/Bots/StateMachineInitializer.cs" />
     <Compile Include="Assets/Scripts/Bases/TaskDispatcher.cs" />
