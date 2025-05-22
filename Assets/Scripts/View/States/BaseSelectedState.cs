@@ -17,6 +17,8 @@ namespace View.States
             _flagInstaller = flagInstaller;
 
             AddTransition(new BaseSelectedToIdle(stateChanger, selector, flagInstaller));
+            AddTransition(new BaseSelectedToBaseBusySelected(stateChanger, selector));
+            AddTransition(new BaseTooFewSelectedToBaseBusySelected(stateChanger, selector));
         }
 
         public override void Enter()

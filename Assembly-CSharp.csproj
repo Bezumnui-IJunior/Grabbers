@@ -62,6 +62,7 @@
     <Compile Include="Assets/Scripts/Spawners/BotFactory.cs" />
     <Compile Include="Assets/Scripts/Bots/BaseBuilder.cs" />
     <Compile Include="Assets/Scripts/StateMachines/Transitions/DelayedTransition.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseSelected/BaseSelectedToBaseTooFewSelected.cs" />
     <Compile Include="Assets/Scripts/Bots/Transitions/GoToTaskToReturn.cs" />
     <Compile Include="Assets/Scripts/Bots/BringItemTask.cs" />
     <Compile Include="Assets/Scripts/Bots/States/BuildingBaseState.cs" />
@@ -100,7 +101,6 @@
     <Compile Include="Assets/Scripts/Bots/Transitions/GoToTaskToBuildBase.cs" />
     <Compile Include="Assets/Scripts/NavmeshPointGenerator.cs" />
     <Compile Include="Assets/Scripts/Spawners/SphereItemSpawner.cs" />
-    <Compile Include="Assets/Scripts/View/Transitions/FromBaseTooFew/BaseTooFewToIdle.cs" />
     <Compile Include="Assets/Scripts/Bots/interfaces/IInventory.cs" />
     <Compile Include="Assets/Scripts/View/Transitions/FromBaseBusy/BaseBusySelectedToBaseTooFewSelected.cs" />
     <Compile Include="Assets/Scripts/View/Transitions/BaseSelectedCorrectTransition.cs" />
@@ -112,6 +112,7 @@
     <Compile Include="Assets/Scripts/Bots/BuildBaseTask.cs" />
     <Compile Include="Assets/Scripts/Bases/InventoryItem.cs" />
     <Compile Include="Assets/Scripts/Flags/interfaces/IFlag.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseTooFew/BaseTooFewSelectedToSelected.cs" />
     <Compile Include="Assets/Scripts/Bots/States/GoToTaskState.cs" />
     <Compile Include="Assets/Scripts/Bases/Transitions/CreateNewBotToCollecting.cs" />
     <Compile Include="Assets/Scripts/Bots/interfaces/IBotTask.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Assets/Scripts/Spawners/RandomItemSpawner.cs" />
     <Compile Include="Assets/Scripts/Misc/MonoBehaviourExtenstion.cs" />
     <Compile Include="Assets/Scripts/Bases/MembersStorage.cs" />
+    <Compile Include="Assets/Scripts/View/Transitions/FromBaseSelected/BaseSelectedToBaseBusySelected.cs" />
     <Compile Include="Assets/Scripts/Bots/interfaces/IBotTasker.cs" />
     <Compile Include="Assets/Scripts/Bots/BotTasker.cs" />
     <Compile Include="Assets/Scripts/Bases/interfaces/IBaseCreator.cs" />
